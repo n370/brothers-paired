@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{metadata.title}}</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        body {
+            margin: 0 auto;
+            width: 50%;
+        }
+        img {
+            width: 100%;
+        }
+        header {
+            margin-bottom: 100px;
+        }
+        section {
+            margin: 50px 0;
+        }
+        .red {
+            color: red;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="red">{{metadata.title}}</h1>
+    </header>
+{{#each data}}
+    <section>
+        <small class="red">{{this.[0]}}</small>
+        <h2>{{this.[1]}}</h2>
+        <img src="{{this.[3]}}" alt="">
+        <p>{{this.[2]}}</p>
+    </section>
+{{/each}}
+</body>
+</html>
