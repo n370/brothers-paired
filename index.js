@@ -40,9 +40,13 @@ getData()
 function getRedirect(id) {
   return new Promise((resolve, reject) => {
     https.get(`https://drive.google.com/thumbnail?id=${id}`, (res) => {
-      const src = res.headers.location.slice(0, -5);
       res.on('readable', res.read);
-      res.on('end', () => resolve(src))
+      if (res.headers.location) {
+      	const src = res.headers.location.slice(0, -5);
+      	res.on('end', () => resolve(src))
+      } else {
+	res.on('end', () => reject(null))
+      }
     });
   });
 }
