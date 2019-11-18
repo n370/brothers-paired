@@ -36,7 +36,7 @@
     </header>
 {{#each data}}
     <section>
-        <small class="red">{{this.timestamp}}</small>
+        <small class="red">{{date this.timestamp}}</small>
         <h2>{{this.title}}</h2>
         <img src="{{this.images.[0]}}" alt="">
         <p>{{this.body}}</p>
